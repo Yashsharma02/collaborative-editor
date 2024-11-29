@@ -1,0 +1,21 @@
+# netlify.toml file
+
+[build]
+  # The build command to run to build your site
+  command = "npm run build"
+  
+  # The directory that contains the built files
+  publish = "build"
+
+  # The directory where serverless functions are stored
+  functions = "functions"
+
+[context.production.environment]
+  # Optional: define environment variables for production environment
+  NODE_ENV = "production"
+
+[[redirects]]
+  # Redirect all requests to index.html for a single-page app
+  from = "/*"
+  to = "/index.html"
+  status = 200
