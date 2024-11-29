@@ -1,0 +1,55 @@
+/* General styling for the body */
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+}
+
+/* Styling for the editor and button */
+#editor {
+  width: 80%;
+  height: 400px;
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 16px;
+  border: 2px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+}
+
+/* Styling for the Save Button */
+#save-button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  background-color: #4CAF50; /* Green color */
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Styling for the Save Button on hover */
+#save-button:hover {
+  background-color: #45a049;
+}
+
+/* Active users list styling */
+#user-list {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+#user-list ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+#user-list li {
+  padding: 5px;
+  background-color: #ddd;
+  margin: 5px 0;
+  border-radius: 3px;
+}
