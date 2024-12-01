@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 # netlify.toml file
 
 [build]
@@ -19,3 +20,14 @@
   from = "/*"
   to = "/index.html"
   status = 200
+=======
+[build]
+  command = "npm run build"
+  publish = "build"
+  functions = "functions"
+
+[[redirects]]
+  from = "/socket.io/*"
+  to = "/.netlify/functions/socket"
+  status = 200
+>>>>>>> Stashed changes

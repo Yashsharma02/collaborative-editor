@@ -1,7 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { io } from 'socket.io-client';
 
+<<<<<<< Updated upstream
 const socket = io(); // Assuming it's connecting to the Netlify function
+=======
+// Connect to Netlify function URL
+const socket = io('/.netlify/functions/socket');
+>>>>>>> Stashed changes
 
 function App() {
   const [content, setContent] = useState('');
@@ -35,9 +40,15 @@ function App() {
 
   const handleUsername = () => {
     if (username) {
+<<<<<<< Updated upstream
       socket.emit('new-user', username); // Emit the username to the server
     } else {
       alert("Please enter a valid username.");
+=======
+      socket.emit('new-user', username); // Send username to the server
+    } else {
+      alert('Please enter a valid username.');
+>>>>>>> Stashed changes
     }
   };
 
@@ -45,7 +56,10 @@ function App() {
     <div className="App">
       <h1>Collaborative Text Editor</h1>
 
+<<<<<<< Updated upstream
       {/* Input field to set username */}
+=======
+>>>>>>> Stashed changes
       {!username ? (
         <div>
           <input
@@ -60,7 +74,10 @@ function App() {
         <p>Welcome, {username}</p>
       )}
 
+<<<<<<< Updated upstream
       {/* Textarea for collaborative writing */}
+=======
+>>>>>>> Stashed changes
       <textarea
         value={content}
         onChange={handleChange}

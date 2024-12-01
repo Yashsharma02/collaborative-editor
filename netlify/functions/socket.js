@@ -1,3 +1,4 @@
+<<<<<<< Updated upstream
 const { Server } = require('socket.io');
 const http = require('http');
 
@@ -37,3 +38,44 @@ io.on('connection', (socket) => {
 exports.handler = (event, context) => {
   server.emit('request', event, context);
 };
+=======
+const { Server } = require('socket.io');
+
+let documentContent = 'This is a collaborative document.';
+let users = {}; // Store users with their socket IDs and usernames
+
+const ioHandler = (req, res) => {
+  if (!res.socket.server.io) {
+    const io = new Server(res.socket.server);
+    res.socket.server.io = io;
+
+    io.on('connection', (socket) => {
+      console.log('User connected:', socket.id);
+
+      // Handle new user joining with username
+      socket.on('new-user', (username) => {
+        users[socket.id] = username;
+        io.emit('update-users', Object.values(users));
+      });
+
+      // Load document content for new users
+      socket.emit('load-document', documentContent);
+
+      // Handle text changes
+      socket.on('text-change', (newContent) => {
+        documentContent = newContent;
+        socket.broadcast.emit('text-change', newContent);
+      });
+
+      // Handle user disconnect
+      socket.on('disconnect', () => {
+        delete users[socket.id];
+        io.emit('update-users', Object.values(users));
+      });
+    });
+  }
+  res.end();
+};
+
+export default ioHandler;
+>>>>>>> Stashed changes
